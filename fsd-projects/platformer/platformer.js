@@ -31,11 +31,11 @@ $(function () {
 
 
     // TODO 2 - Create Platforms
-createPlatform(400, 600, 200, 10);
-createPlatform(500, 1000, 300, 20);
+createPlatform(400, 300, 200, 10);
+createPlatform(500, 400, 300, 10);
 createPlatform(600, 600, 200, 10);
-createPlatform(700, 600, 200, 10);
-createPlatform(400, 600, 200, 10);
+createPlatform(700, 700, 200, 10);
+createPlatform(900, 500, 300, 10);
 
 
 
