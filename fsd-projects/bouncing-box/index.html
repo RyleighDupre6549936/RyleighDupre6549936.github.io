@@ -14,31 +14,25 @@
         user-select: none;
         display: block;
         position: absolute;
-        top: 100px;
-        /* Change me! */
+        top: 100px; /* Change me! */
         left: 0px;
       }
-
       .board {
         height: 100vh;
       }
     </style>
-    <!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
   </head>
-
   <body class="board">
     <!-- HTML for the box -->
     <div class="box">?</div>
-
     <script>
       (function () {
         "use strict";
         /* global jQuery */
-
         //////////////////////////////////////////////////////////////////
         /////////////////// SETUP DO NOT DELETE //////////////////////////
         //////////////////////////////////////////////////////////////////
-
         var box = jQuery(".box"); // reference to the HTML .box element
         var board = jQuery(".board"); // reference to the HTML .board element
         var boardWidth = board.width(); // the maximum X-Coordinate of the screen
@@ -69,21 +63,26 @@
         //////////////////////////////////////////////////////////////////
 
         // TODO 2 - Variable declarations
-        var positionX = 0
+        var positionX = 0;
         var points = 0;
-
-
+        var speed = 10;
+        var direction = 1; // 1 for right, -1 for left
 
         /**
          * This Function will be called 20 times/second.
          * Each time it is called, it should move the Box to a new location.
          * If the box drifts off the screen, turn it around!
          */
-        function update(){
-       positionX = positionX + 10;
-       moveBoxTo(positionX);
-       points = points + 1
+        function update() {
+          // TODO 4 - Code to update the box's position
+          positionX += speed * direction;
+          moveBoxTo(positionX);
 
+          // TODO 5 - Code to reverse the box's direction when it hits the board's edge
+          // boxWidth can be accessed via box.width()
+          if (positionX > boardWidth - box.width() || positionX < 0) {
+            direction *= -1;
+          }
         }
 
         /**
@@ -94,18 +93,14 @@
          * - move the box to the left side of the screen.
          */
         function handleBoxClick() {
-positionX = 0;
-changeBoxText(points);
-
-
-
-
-
+          // TODO 3 - Code to handle the box click
+          points += 1;
+          speed += 3;
+          positionX = 0;
+          changeBoxText(points);
         }
-
-
-        
       })();
     </script>
   </body>
 </html>
+
